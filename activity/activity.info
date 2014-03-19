@@ -1,0 +1,9 @@
+[Activity]
+name = SimpleIRC
+summary = An activity to make IRC simple and fun.
+bundle_id = org.laptop.simpleirc
+exec = sugar-activity activity.SimpleIRC
+icon = SimpleIRC
+activity_version = 1
+show_launcher = yes
+mime_types = application/x-simpleirc-session;

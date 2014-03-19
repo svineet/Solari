@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+  <!ENTITY fill_color "#ffffff">
+  <!ENTITY stroke_color "#000000">
+]>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48px"
+   height="48px"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="SimpleIRC.svg">
+  <defs
+     id="defs2987">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3779">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3781" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3783" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3779"
+       id="linearGradient3785"
+       x1="17.999581"
+       y1="42.372193"
+       x2="27.483197"
+       y2="42.372193"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7"
+     inkscape:cx="-1.2857143"
+     inkscape:cy="24"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="1360"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2990">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       sodipodi:type="arc"
+       style="fill:&fill_color;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path2993"
+       sodipodi:cx="25"
+       sodipodi:cy="18.142857"
+       sodipodi:rx="16.285715"
+       sodipodi:ry="5.5714288"
+       d="m 41.285715,18.142857 a 16.285715,5.5714288 0 1 1 -32.5714301,0 16.285715,5.5714288 0 1 1 32.5714301,0 z"
+       transform="matrix(0.93407008,-0.01619891,0.0311225,1.7946019,-0.7021172,-13.439948)" />
+    <path
+       style="fill:&fill_color;fill-opacity:1;&stroke_color;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 13.395898,22.715131 C 8.7915835,32.283589 9.2997406,31.781613 8.7915835,32.283589 8.2834266,32.785567 19.271098,26.670543 19.271098,26.670543 z"
+       id="path3767"
+       inkscape:connector-curvature="0" />
+    <path
+       transform="matrix(-0.82797527,-0.01525764,-0.0275875,1.6903233,49.842756,-6.8811201)"
+       d="m 41.285715,18.142857 a 16.285715,5.5714288 0 1 1 -32.5714301,0 16.285715,5.5714288 0 1 1 32.5714301,0 z"
+       sodipodi:ry="5.5714288"
+       sodipodi:rx="16.285715"
+       sodipodi:cy="18.142857"
+       sodipodi:cx="25"
+       id="path3769"
+       style="fill:&fill_color;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       sodipodi:type="arc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3771"
+       d="m 37.346041,27.173102 c 4.081341,9.012465 3.630903,8.539658 4.081341,9.012465 0.450439,0.47281 -9.289216,-5.286889 -9.289216,-5.286889 z"
+       style="fill:&fill_color;fill-opacity:1;&stroke_color;stroke-width:0.91373395999999996px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.36751366000000019px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:&fill_color;fill-opacity:1;&stroke_color;stroke-width:0.29999999999999999;stroke-opacity:1;font-family:Sans;stroke-miterlimit:4;stroke-dasharray:none"
+       x="14.386172"
+       y="46.046989"
+       id="text3775"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0753583,0.92992261)"><tspan
+         sodipodi:role="line"
+         id="tspan3777"
+         x="14.386172"
+         y="46.046989"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:&fill_color;fill-opacity:1;&stroke_color;stroke-width:0.29999999999999999;stroke-opacity:1;font-family:Ubuntu Mono;-inkscape-font-specification:Ubuntu Mono;stroke-miterlimit:4;stroke-dasharray:none">IRC</tspan></text>
+  </g>
+</svg>
