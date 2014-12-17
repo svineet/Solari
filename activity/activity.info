@@ -1,9 +1,9 @@
 [Activity]
-name = SimpleIRC
+name = Solari
 summary = An activity to make IRC simple and fun.
-bundle_id = org.laptop.simpleirc
-exec = sugar-activity activity.SimpleIRC
-icon = SimpleIRC
+bundle_id = org.laptop.solari
+exec = sugar-activity activity.Solari
+icon = Solari
 activity_version = 1
 show_launcher = yes
-mime_types = application/x-simpleirc-session;
+mime_types = application/x-solari-session;

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# SimpleIRC Activity is an activity which makes IRC simple.
+# Solari Activity is an activity which makes IRC simple.
 # Copyright (C) 2014  Sai Vineet
 
 # This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-"""SimpleIRC Activity: An activity that makes IRC fun and simple"""
+"""Solari Activity: An activity that makes IRC fun and simple"""
 
 from gi.repository import Gtk
-# import logging
-
-# from gettext import gettext as _
+from gi.repository import GObject
 
 from sugar3.activity import activity
 from sugar3.graphics.toolbarbox import ToolbarBox
@@ -30,20 +28,26 @@ from sugar3.activity.widgets import ActivityToolbarButton
 from sugar3.activity.widgets import StopButton
 
 from widgets import StartScreen
-# from widgets import IRCWidget
+from widgets import IRCWidget
+
+from client import get_connected_client
+from client import BasicHandler
+
+from oyoyo.client import IRCClient
+from oyoyo.cmdhandler import DefaultCommandHandler
+from oyoyo import helpers
 
 
-class SimpleIRC(activity.Activity):
+class Solari(activity.Activity):
 
     def __init__(self, handle):
         """Set up the activity."""
         activity.Activity.__init__(self, handle)
-
-        # we do not have collaboration features
-        # make the share option insensitive
         self.max_participants = 1
 
-        # toolbar with the new toolbar redesign
+        self._connection = None
+        self._nick_lists = {}
+
         toolbar_box = ToolbarBox()
 
         activity_button = ActivityToolbarButton(self)
@@ -73,5 +77,38 @@ class SimpleIRC(activity.Activity):
         self.start_screen.connect("connect-clicked", self._start)
         self.set_canvas(self.start_screen)
 
-    def _start(self, widget, *data):
-        print data
+    def _next_con(self):
+        self._connection.next()
+        GObject.idle_add(self._next_con)
+
+    def connect_cb(self, cli):
+        for c in self.channels:
+            helpers.join(cli, c)
+
+    def _start(self, widget, nick, server, channels, port):
+        self.channels = [c.strip() for c in channels.split(",")]
+
+        client = IRCClient(
+            BasicHandler,
+            host=server,
+            port=port,
+            nick=nick,
+            connect_cb=self.connect_cb)
+        client.get_handler().set_activity(self)
+
+        self._connection = client.connect()
+        GObject.idle_add(self._next_con)
+
+        self.irc_widget = IRCWidget()
+        self.set_canvas(self.irc_widget)
+
+    def clean_nick(self, nick):
+        return nick.split("!")[0]
+
+    # IRC event handling starts here
+    def privmsg(self, nick, channel, msg):
+        nick = self.clean_nick(nick)
+        self.irc_widget.add_privmsg(nick, msg)
+
+    def joined(self, nick, channel):
+        pass

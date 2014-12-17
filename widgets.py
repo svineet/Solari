@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# SimpleIRC Activity is an activity which makes IRC simple.
+# Solari Activity is an activity which makes IRC simple.
 # Copyright (C) 2014  Sai Vineet
 
 # This program is free software: you can redistribute it and/or modify
@@ -48,8 +48,8 @@ class StartScreen(Gtk.EventBox):
     __gsignals__ = {
         'connect-clicked': (GObject.SignalFlags.RUN_FIRST,
                             None,
-                            ([str, str, int])),
-        # nick, server, port
+                            ([str, str, str, int])),
+        # nick, server, channels, port
     }
 
     def __init__(self):
@@ -62,14 +62,17 @@ class StartScreen(Gtk.EventBox):
         self.modify_bg(Gtk.StateType.NORMAL,
                        style.COLOR_WHITE.get_gdk_color())
 
-        self.nick = Field("Nick", "svineet")
-        form.pack_start(self.nick, False, False, 0)
+        self.nick = Field("Nick", "solari_user")
+        form.pack_start(self.nick, False, False, 5)
 
         self.server = Field("Server", "irc.freenode.net")
-        form.pack_start(self.server, False, False, 0)
+        form.pack_start(self.server, False, False, 5)
 
         self.port = Field("Port", "6667")
-        form.pack_start(self.port, False, False, 0)
+        form.pack_start(self.port, False, False, 5)
+
+        self.channels = Field("Channels", "#solari-testing")
+        form.pack_start(self.channels, False, False, 5)
 
         enter = Gtk.Button(label="Connect!")
         enter.connect("clicked", self.__connect_clicked)
@@ -85,9 +88,74 @@ class StartScreen(Gtk.EventBox):
         data = {
             "nick": self.nick.get_value(),
             "server": self.server.get_value(),
+            "channels": self.channels.get_value(),
             "port": int(self.port.get_value())
         }
         self.emit("connect-clicked",
                   data["nick"],
                   data["server"],
+                  data["channels"],
                   data["port"])
+
+
+class IRCTextView(Gtk.VBox):
+
+    def __init__(self):
+        Gtk.VBox.__init__(self)
+
+        self.modify_bg(Gtk.StateType.NORMAL,
+                       style.COLOR_WHITE.get_gdk_color())
+        self.show_all()
+
+    def add_message(self, from_whom, msg):
+        hbox = Gtk.HBox()
+
+        from_ = Gtk.Label()
+        from_.set_width_chars(20)
+        from_.set_label(from_whom)
+        from_.set_justify(Gtk.Justification.LEFT)
+        hbox.pack_start(from_, False, False, 5)
+
+        message_box = Gtk.Label()
+        message_box.set_line_wrap(True)
+        message_box.set_label(msg)
+        message_box.set_justify(Gtk.Justification.LEFT)
+        hbox.pack_start(message_box, True, True, 5)
+
+        self.pack_start(hbox, False, False, 5)
+        hbox.show_all()
+
+    def add_info_message(self, message):
+        lb = Gtk.Label()
+        lb.set_label(message)
+        lb.set_justify(Gtk.Justification.LEFT)
+        lb.set_line_wrap(True)
+        self.pack_start(lb, False, False, 5)
+        lb.show()
+
+
+class ChannelNotebook(Gtk.Notebook):
+
+    def __init__(self, activity):
+        Gtk.Notebook.__init__(self)
+
+        self._activity = activity
+        self.channel_list = []
+
+    def add_page(self, channel):
+        
+
+
+class IRCWidget(Gtk.HPaned):
+
+    def __init__(self, ):
+        Gtk.HPaned.__init__(self)
+
+        self.text_place = Gtk.VBox()
+
+        self.show_all()
+
+    def add_privmsg(self, from_, msg):
+        buffer_ = self.text_view.get_buffer()
+        buffer_.insert(buffer_.get_end_iter(),
+                       from_.ljust(20)+msg)

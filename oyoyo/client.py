@@ -94,6 +94,9 @@ class IRCClient:
 
         self._end = 0
 
+    def get_handler(self):
+        return self.command_handler
+
     def send(self, *args, **kwargs):
         """ send a message to the connected server. all arguments are joined
         with a space for convenience, for example the following are identical 
